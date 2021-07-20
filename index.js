@@ -168,16 +168,25 @@ function scoreboard(getInningScorecb, inningcb, numberOfInnings) {
   let allGameInnings = [];
   //declare an empty array that we can push our results to
   //make a variable for homeScore and awayScore and set them to 0 (use let b/c you will update them)
+  //write a for loop - let i = 0; i < numberOfInnings; i++
+  //inside the loop, create a variable for the home + away object from the getInningcb(inningcb)(*pass it inningcb*)
+  //update your variables of home and away for each inning
+  //push them to your array (still inside the loop)
+  //outside of the loop conditional
+  //if awayScore === homescore
+  //push that this game will require extra innings
+  //else
+  //push final score
+  //return array
   let totalHome = 0;
   let totalAway = 0;
   let homeScore = 0;
   let awayScore = 0;
-  //write a for loop - let i = 0; i < numberOfInnings; i++
   for (let i = 0; i < numberOfInnings; i++) {
     const currentScore = getInningScorecb(inningcb);
     homeScore = homeScore + currentScore.Home;
     awayScore = currentScore.Away;
-    allGameInnings.push(`Inning ${[i]}: Away ${awayScore} - Home ${homeScore}`)
+    allGameInnings.push(`Inning ${[i + 1]}: Away ${awayScore} - Home ${homeScore}`)
     totalAway = totalAway += currentScore.Away;
     totalHome = totalHome += currentScore.Home;
   }
@@ -190,19 +199,6 @@ function scoreboard(getInningScorecb, inningcb, numberOfInnings) {
 }
 
 console.log("task 5:", scoreboard(getInningScore, inning, 9))
-
-//inside the loop, create a variable for the home + away object from the getInningcb(inningcb)(*pass it inningcb*)
-//update your variables of home and away for each inning
-//push them to your array (still inside the loop)
-//outside of the loop conditional
-//if awayScore === homescore
-//push that this game will require extra innings
-//else
-//push final score
-//return array
-
-
-
 
 
 
