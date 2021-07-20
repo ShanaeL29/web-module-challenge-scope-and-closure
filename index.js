@@ -28,13 +28,12 @@ console.log(processFirstItem(['foo', 'bar'], function (str) { return str + str }
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+     Counter 1 has a function inside a function in which one has a closure and reaches into the other. Counter 1 has variables defined inside the function. Counter 2 defines the variable outside the function in the global scope.
   2. Which of the two uses a closure? How can you tell?
-     Counter 1 uses a closure.
+     Counter 1 uses a closure. There are 2 functions in which 1 reaches into the other.
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
-     //use counter 1 preferably unless the count needs to be accessible on the global scope
-     Sometimes we need global objects. If we need an object to be accessible everywhere.
+     Use counter 1 preferably unless the count needs to be accessible on the global scope in which case we would use counter 2. Sometimes we need global objects if we need an object to be accessible everywhere.
 */
 
 // counter1 code
@@ -122,6 +121,7 @@ function getInningScore(inningcb) {
   return { Away: inningcb(), Home: inningcb() };
 }
 
+console.log("task 4:", getInningScore(inning));
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
