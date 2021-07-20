@@ -81,8 +81,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+  The closure is used
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+  Dan is always the same since it is the argument being plugged into the function paramater. The newRoll could always change as its a random number.
+c. What is the lexical scope of `newRoll`?
+  The lexical scope is only everything WITHIN the function
 
 
 ### Task 3 - Stretch Goals
