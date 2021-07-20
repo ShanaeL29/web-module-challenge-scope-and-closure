@@ -184,11 +184,11 @@ function scoreboard(getInningScorecb, inningcb, numberOfInnings) {
   let awayScore = 0;
   for (let i = 0; i < numberOfInnings; i++) {
     const currentScore = getInningScorecb(inningcb);
-    homeScore = homeScore + currentScore.Home;
+    homeScore = currentScore.Home;
     awayScore = currentScore.Away;
     allGameInnings.push(`Inning ${[i + 1]}: Away ${awayScore} - Home ${homeScore}`)
-    totalAway = totalAway += currentScore.Away;
-    totalHome = totalHome += currentScore.Home;
+    totalAway += currentScore.Away;
+    totalHome += currentScore.Home;
   }
   if (totalHome === totalAway) {
     allGameInnings.push(`This game will require extra innings: Away ${totalAway} - Home ${totalHome}`)
