@@ -16,7 +16,7 @@
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
-console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
+console.log(processFirstItem(['foo', 'bar'], function (str) { return str + str }));
 
 // ⭐️ Example Challenge END ⭐️
 
@@ -30,16 +30,18 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   1. What is the difference between counter1 and counter2?
   
   2. Which of the two uses a closure? How can you tell?
-  
+     Counter 1 uses a closure.
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     //use counter 1 preferably unless the count needs to be accessible on the global scope
+     Sometimes we need global objects. If we need an object to be accessible everywhere.
 */
 
 // counter1 code
 function counterMaker() {
   let count = 0;
   return function counter() {
-   return count++;
+    return count++;
   }
 }
 
@@ -53,6 +55,7 @@ function counter2() {
 }
 
 
+
 /* ⚾️⚾️⚾️ Task 2: inning() ⚾️⚾️⚾️
 Use the inning function below to do the following:
   1. Return a random whole number of points between 0 and 2 scored by one team in an inning
@@ -62,10 +65,11 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning() {
+  return Math.floor(Math.random() * Math.floor(3));
 }
 
+console.log("task 2:", inning());
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -79,19 +83,43 @@ Use the finalScore function below to do the following:
   "Home": 11,
   "Away": 5
 }
-*/ 
+*/
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inningcb, numberOfInnings) {
+  const score = { Away: 0, Home: 0 };
+  for (let i = 0; i < numberOfInnings; i++) {
+    score.Away = score.Away + inningcb()
+    score.Home += inningcb()
+  } return score;
 }
+
+console.log("task 3:", finalScore(inning, 9));
+console.log("task 3:", finalScore(inning, 9));
+console.log("task 3:", finalScore(inning, 9));
+
+// another way:
+// function finalScore(inningcb, num) 
+// let homeScore = 0;
+// let awayScore = 0;
+// for(let i=0; i < num; i++){
+//   homeScore = homeScore + inningcb();
+//   awayScore = awayScore + inningcb();
+// }
+// return {
+//   Home: homeScore, 
+//   Away: awayScore
+// }
+// }
+// console.log(finalScore(inning, 9));
+
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inningcb) {
+  return { Away: inningcb(), Home: inningcb() };
 }
 
 
@@ -135,16 +163,34 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ]  
   */
+//pass in getInningcb, inningcb, numberOfInnings)
+function scoreboard(getInningcb, inningcb, numberOfInnings) {
+  //declare an empty array that we can push our results to
+  array = [];
+  //make a variable for homeScore and awayScore and set them to 0 (use let b/c you will update them)
+  homeScore = 0;
+  awayScore = 0;
+  //write a for loop - let i = 0; i < numberOfInnings; i++
+  for (let i = 0; i < numberOfInnings; i++) {
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+  }
+  //inside the loop, create a variable for the home + away object from the getInningcb(inningcb)(*pass it inningcb*)
+  //update your variables of home and away for each inning
+  //push them to your array (still inside the loop)
+  //outside of the loop conditional
+  //if awayScore === homescore
+  //push that this game will require extra innings
+  //else
+  //push final score
+  //return array
+
 }
 
 
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
-function foo(){
+function foo() {
   console.log('its working');
   return 'bar';
 }
