@@ -81,11 +81,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
-  The closure is used at dansRoll because it has to reach outside its scope and into the functions scope to get its result.
+  The closure is used at the return statement because it gets called from with inside personalDice
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
   Dan is always the same since it is the argument being plugged into the function paramater. The newRoll could always change as its a random number.
 c. What is the lexical scope of `newRoll`?
-  The lexical scope is only everything WITHIN the function.
+  The lexical scope is only everything inside of return function().
 
 
 ### Task 3 - Stretch Goals
